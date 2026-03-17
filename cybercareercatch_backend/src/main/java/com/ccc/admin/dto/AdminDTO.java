@@ -8,7 +8,7 @@ public class AdminDTO {
     private String adminId;
     private String adminPw;
     private String adminName;
-    private Date addDate;
+    private String addDate;
 
     public AdminDTO() {}
 
@@ -44,11 +44,11 @@ public class AdminDTO {
         this.adminName = adminName;
     }
 
-    public Date getAddDate() {
+    public String getAddDate() {
         return addDate;
     }
 
-    public void setAddDate(Date addDate) {
+    public void setAddDate(String addDate) {
         this.addDate = addDate;
     }
 }

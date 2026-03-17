@@ -8,8 +8,8 @@ public class JobResultDTO {
     private int userNumber;
     private int jobNumber;
     private String jobResultStatus;
-    private Date jobResultCreatedDate;
-    private Date jobResultConfirmDate;
+    private String jobResultCreatedDate;
+    private String jobResultConfirmDate;
 
     public JobResultDTO() {}
 
@@ -45,19 +45,19 @@ public class JobResultDTO {
         this.jobResultStatus = jobResultStatus;
     }
 
-    public Date getJobResultCreatedDate() {
+    public String getJobResultCreatedDate() {
         return jobResultCreatedDate;
     }
 
-    public void setJobResultCreatedDate(Date jobResultCreatedDate) {
+    public void setJobResultCreatedDate(String jobResultCreatedDate) {
         this.jobResultCreatedDate = jobResultCreatedDate;
     }
 
-    public Date getJobResultConfirmDate() {
+    public String getJobResultConfirmDate() {
         return jobResultConfirmDate;
     }
 
-    public void setJobResultConfirmDate(Date jobResultConfirmDate) {
+    public void setJobResultConfirmDate(String jobResultConfirmDate) {
         this.jobResultConfirmDate = jobResultConfirmDate;
     }
 }

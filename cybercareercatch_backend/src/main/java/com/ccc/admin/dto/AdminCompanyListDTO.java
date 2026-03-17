@@ -8,7 +8,7 @@ public class AdminCompanyListDTO {
     private String userId;
     private int companyNumber;
     private String companyName;
-    private Date userJoinDate;
+    private String userJoinDate;
     private String companyState;
 
     public AdminCompanyListDTO() {}
@@ -45,11 +45,11 @@ public class AdminCompanyListDTO {
         this.companyName = companyName;
     }
 
-    public Date getUserJoinDate() {
+    public String getUserJoinDate() {
         return userJoinDate;
     }
 
-    public void setUserJoinDate(Date userJoinDate) {
+    public void setUserJoinDate(String userJoinDate) {
         this.userJoinDate = userJoinDate;
     }
 

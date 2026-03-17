@@ -7,7 +7,7 @@ public class AdminMemberListDTO {
     private int userNumber;
     private String userId;
     private String userName;
-    private Date userJoinDate;
+    private String userJoinDate;
 
     public AdminMemberListDTO() {}
 
@@ -35,11 +35,11 @@ public class AdminMemberListDTO {
         this.userName = userName;
     }
 
-    public Date getUserJoinDate() {
+    public String getUserJoinDate() {
         return userJoinDate;
     }
 
-    public void setUserJoinDate(Date userJoinDate) {
+    public void setUserJoinDate(String userJoinDate) {
         this.userJoinDate = userJoinDate;
     }
 }
