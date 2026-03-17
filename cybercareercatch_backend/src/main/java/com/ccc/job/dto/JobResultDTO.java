@@ -1,5 +1,63 @@
 package com.ccc.job.dto;
 
+import java.util.Date;
+
 public class JobResultDTO {
 
+    private int jobResultNumber;
+    private int userNumber;
+    private int jobNumber;
+    private String jobResultStatus;
+    private Date jobResultCreatedDate;
+    private Date jobResultConfirmDate;
+
+    public JobResultDTO() {}
+
+    public int getJobResultNumber() {
+        return jobResultNumber;
+    }
+
+    public void setJobResultNumber(int jobResultNumber) {
+        this.jobResultNumber = jobResultNumber;
+    }
+
+    public int getUserNumber() {
+        return userNumber;
+    }
+
+    public void setUserNumber(int userNumber) {
+        this.userNumber = userNumber;
+    }
+
+    public int getJobNumber() {
+        return jobNumber;
+    }
+
+    public void setJobNumber(int jobNumber) {
+        this.jobNumber = jobNumber;
+    }
+
+    public String getJobResultStatus() {
+        return jobResultStatus;
+    }
+
+    public void setJobResultStatus(String jobResultStatus) {
+        this.jobResultStatus = jobResultStatus;
+    }
+
+    public Date getJobResultCreatedDate() {
+        return jobResultCreatedDate;
+    }
+
+    public void setJobResultCreatedDate(Date jobResultCreatedDate) {
+        this.jobResultCreatedDate = jobResultCreatedDate;
+    }
+
+    public Date getJobResultConfirmDate() {
+        return jobResultConfirmDate;
+    }
+
+    public void setJobResultConfirmDate(Date jobResultConfirmDate) {
+        this.jobResultConfirmDate = jobResultConfirmDate;
+    }
 }
