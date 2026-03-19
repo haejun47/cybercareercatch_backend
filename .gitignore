@@ -64,7 +64,7 @@ uploads/
 # =============================
 # DB & Local Config (보안)
 # =============================
-src/main/resources/context.properties
+cybercareercatch_backend/src/main/resources/context.properties
 db.properties
 jdbc.properties
 .env
@@ -84,3 +84,6 @@ jdbc.properties
 *.swp
 *.orig
 *.rej
+
+# eclipse .gitignore 파일 삭젝
+cybercareercatch_backend/.gitignore
