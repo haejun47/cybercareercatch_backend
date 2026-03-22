@@ -1,5 +1,6 @@
 package com.ccc.mypage.controller;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -9,15 +10,16 @@ import javax.servlet.http.HttpSession;
 
 import com.ccc.common.Execute;
 import com.ccc.common.Result;
+import com.ccc.company.dto.CompanyDetailDTO;
 import com.ccc.mypage.dao.MypageDAO;
-import com.ccc.mypage.dto.CompanyMypageInfoDTO;
 
-public class MypageCompanyEditInfoController implements Execute {
+public class MypageCompanypageDeleteController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("MypageCompanyEditInfoController 실행");
+
+		System.out.println("MypageCompanypageDeleteController 실행");
 
 		MypageDAO mypageDAO = new MypageDAO();
 		Result result = new Result();
@@ -47,28 +49,44 @@ public class MypageCompanyEditInfoController implements Execute {
 			return result;
 		}
 
-		// 비밀번호 확인 안 했으면 다시 비밀번호 확인 페이지로
-		Boolean companyPwChecked = (Boolean) session.getAttribute("companyPwChecked");
-		if (companyPwChecked == null || !companyPwChecked) {
-			result.setPath(request.getContextPath() + "/company/mypage/checkPw.mpfc");
-			result.setRedirect(true);
-			return result;
-		}
 
-		// 기업회원 기본정보 조회
-		CompanyMypageInfoDTO companyMypageInfoDTO = mypageDAO.selectCompanyMemberMypageInfo(userNumber);
+		// 기존 기업정보페이지 상세 조회
+		CompanyDetailDTO companyDetailDTO = mypageDAO.selectCompanyPageDetail(userNumber);
 
-		// 조회 실패 시 마이페이지로 돌려보내기
-		if (companyMypageInfoDTO == null) {
+		// 삭제할 기업정보페이지가 없는 경우
+		if (companyDetailDTO == null) {
 			result.setPath(request.getContextPath() + "/company/mypage.mpfc");
 			result.setRedirect(true);
 			return result;
 		}
 
-		request.setAttribute("companyMypageInfoDTO", companyMypageInfoDTO);
+		// 서버 파일 먼저 삭제
+		if (companyDetailDTO.getFilePath() != null && !companyDetailDTO.getFilePath().trim().isEmpty()) {
+			File oldFile = new File(
+					request.getSession().getServletContext().getRealPath("/"),
+					companyDetailDTO.getFilePath()
+			);
 
-		result.setPath("/app/main/mypage/mypage-company-edit.jsp");
-		result.setRedirect(false);
+			if (oldFile.exists()) {
+				System.out.println("기존 파일 삭제 : " + oldFile.getAbsolutePath());
+				oldFile.delete();
+			}
+		}
+
+		// DB 삭제
+		// 자식 테이블부터 삭제
+		mypageDAO.deleteJobPostByUserNumber(userNumber);
+		System.out.println("TBL_JOB_POST 삭제 완료");
+
+		mypageDAO.deleteFileByUserNumber(userNumber);
+		System.out.println("TBL_FILE 삭제 완료");
+
+		mypageDAO.deleteCompInfoByUserNumber(userNumber);
+		System.out.println("TBL_COMP_INFO 삭제 완료");
+
+		// 삭제 후 기업회원 마이페이지로 이동
+		result.setPath(request.getContextPath() + "/company/mypage.mpfc");
+		result.setRedirect(true);
 
 		return result;
 	}
