@@ -11,8 +11,8 @@ public class CompanyDetailDTO {
 	private String compCeoName;
 	private int compFndYear;
 	private int compEmplCnt;
-	private int compRev;
-	private int compCap;
+	private long compRev;
+	private long compCap;
 	private String compType;
 	private String compSummary;
 	private String compTech;
@@ -101,20 +101,20 @@ public class CompanyDetailDTO {
 		this.compEmplCnt = compEmplCnt;
 	}
 	
-	public int getCompRev() {
-		return compRev;
+	public long getCompRev() {
+	    return compRev;
 	}
-	
-	public void setCompRev(int compRev) {
-		this.compRev = compRev;
+
+	public void setCompRev(long compRev) {
+	    this.compRev = compRev;
 	}
-	
-	public int getCompCap() {
-		return compCap;
+
+	public long getCompCap() {
+	    return compCap;
 	}
-	
-	public void setCompCap(int compCap) {
-		this.compCap = compCap;
+
+	public void setCompCap(long compCap) {
+	    this.compCap = compCap;
 	}
 	
 	public String getCompType() {
