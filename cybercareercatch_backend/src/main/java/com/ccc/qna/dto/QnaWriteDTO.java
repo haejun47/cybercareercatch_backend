@@ -1,6 +1,7 @@
 package com.ccc.qna.dto;
 
 public class QnaWriteDTO {
+<<<<<<< HEAD
    private Long postNumber;
    private Long userNumber;
    private Long companyNumber;
@@ -34,6 +35,39 @@ public class QnaWriteDTO {
    public void setCompanyNumber(Long companyNumber) {
       this.companyNumber = companyNumber;
    }
+=======
+	private Integer postNumber;
+	private Integer userNumber;
+	private Integer companyNumber;
+	private String postTitle;
+	private String postContent;
+	private String postType;
+	private String answerStatus;
+
+	public Integer getPostNumber() {
+		return postNumber;
+	}
+
+	public void setPostNumber(Integer postNumber) {
+		this.postNumber = postNumber;
+	}
+
+	public Integer getUserNumber() {
+		return userNumber;
+	}
+
+	public void setUserNumber(Integer userNumber) {
+		this.userNumber = userNumber;
+	}
+
+	public Integer getCompanyNumber() {
+		return companyNumber;
+	}
+
+	public void setCompanyNumber(Integer companyNumber) {
+		this.companyNumber = companyNumber;
+	}
+>>>>>>> de81b31 (20260323 이해준 자유게시판, 기업qna 수정)
 
    public String getPostTitle() {
       return postTitle;
@@ -63,6 +97,7 @@ public class QnaWriteDTO {
       return answerStatus;
    }
 
+<<<<<<< HEAD
    public void setAnswerStatus(String answerStatus) {
       this.answerStatus = answerStatus;
    }
@@ -73,4 +108,9 @@ public class QnaWriteDTO {
             + companyNumber + ", postTitle=" + postTitle + ", postContent=" + postContent + ", postType="
             + postType + ", answerStatus=" + answerStatus + "]";
    }
+=======
+	public void setAnswerStatus(String answerStatus) {
+		this.answerStatus = answerStatus;
+	}
+>>>>>>> de81b31 (20260323 이해준 자유게시판, 기업qna 수정)
 }

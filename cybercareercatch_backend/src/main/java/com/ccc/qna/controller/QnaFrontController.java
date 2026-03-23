@@ -12,6 +12,7 @@ import com.ccc.common.Result;
 public class QnaFrontController extends HttpServlet {
    private static final long serialVersionUID = 1L;
 
+<<<<<<< HEAD
     public QnaFrontController() {
         super();
     }
@@ -23,6 +24,19 @@ public class QnaFrontController extends HttpServlet {
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       doProcess(request, response);
    }
+=======
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doProcess(request, response);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doProcess(request, response);
+	}
+>>>>>>> de81b31 (20260323 이해준 자유게시판, 기업qna 수정)
 
    protected void doProcess(HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException {
@@ -35,6 +49,7 @@ public class QnaFrontController extends HttpServlet {
 
       Result result = null;
 
+<<<<<<< HEAD
       switch(target) {
 
       case "/qna/list.qfc":
@@ -42,6 +57,14 @@ public class QnaFrontController extends HttpServlet {
          result = new QnaListController().execute(request, response);
          System.out.println("QnA 목록 처리 완료");
          break;
+=======
+		switch (target) {
+		case "/qna/list.qfc":
+			System.out.println("QnA 목록 처리 요청");
+			result = new QnaListController().execute(request, response);
+			System.out.println("QnA 목록 처리 완료");
+			break;
+>>>>>>> de81b31 (20260323 이해준 자유게시판, 기업qna 수정)
 
       case "/qna/detail.qfc":
          System.out.println("QnA 상세 처리 요청");
@@ -49,6 +72,7 @@ public class QnaFrontController extends HttpServlet {
          System.out.println("QnA 상세 처리 완료");
          break;
 
+<<<<<<< HEAD
       case "/qna/comment-write.qfc":
          System.out.println("QnA 댓글 등록 처리 요청");
          result = new QnaCommentWriteController().execute(request, response);
@@ -92,4 +116,60 @@ public class QnaFrontController extends HttpServlet {
          }
       }
    }
+=======
+		case "/qna/write-form.qfc":
+			System.out.println("QnA 글쓰기 폼 이동 요청");
+			result = new QnaWriteFormController().execute(request, response);
+			System.out.println("QnA 글쓰기 폼 이동 완료");
+			break;
+
+		case "/qna/write.qfc":
+			System.out.println("QnA 게시글 등록 처리 요청");
+			result = new QnaWriteController().execute(request, response);
+			System.out.println("QnA 게시글 등록 처리 완료");
+			break;
+
+		case "/qna/delete.qfc":
+			System.out.println("QnA 게시글 삭제 처리 요청");
+			result = new QnaDeleteController().execute(request, response);
+			System.out.println("QnA 게시글 삭제 처리 완료");
+			break;
+
+		case "/qna/comment-write.qfc":
+			System.out.println("QnA 댓글 등록 처리 요청");
+			result = new QnaCommentWriteController().execute(request, response);
+			System.out.println("QnA 댓글 등록 처리 완료");
+			break;
+
+		case "/qna/comment-delete.qfc":
+			System.out.println("QnA 댓글 삭제 처리 요청");
+			result = new QnaCommentDeleteController().execute(request, response);
+			System.out.println("QnA 댓글 삭제 처리 완료");
+			break;
+
+		case "/qna/notice.qfc":
+			System.out.println("QnA 공지 이동 요청");
+			result = new QnaNoticeController().execute(request, response);
+			System.out.println("QnA 공지 이동 완료");
+			break;
+
+		default:
+			System.out.println("QnA 요청 경로 없음 : " + target);
+			result = new Result();
+			result.setPath(request.getContextPath() + "/qna/list.qfc");
+			result.setRedirect(true);
+			break;
+		}
+
+		if (result != null && result.getPath() != null) {
+			if (result.isRedirect()) {
+				response.sendRedirect(result.getPath());
+			} else {
+				request.getRequestDispatcher(result.getPath()).forward(request, response);
+			}
+		} else {
+			System.out.println("result 또는 path가 null입니다.");
+		}
+	}
+>>>>>>> de81b31 (20260323 이해준 자유게시판, 기업qna 수정)
 }

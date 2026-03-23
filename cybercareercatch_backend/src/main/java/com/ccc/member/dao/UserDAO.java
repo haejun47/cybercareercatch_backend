@@ -17,6 +17,7 @@ public class UserDAO {
 		return userNumber == null ? -1 : userNumber;
 	}
 
+<<<<<<< HEAD
 	public boolean checkId(String userId) {
 		int count = (int) sqlSession.selectOne("user.checkId", userId);
 		return count == 0;
@@ -32,3 +33,13 @@ public class UserDAO {
 	}
 
 }
+=======
+	public String selectUserType(int userNumber) {
+		return sqlSession.selectOne("user.selectUserType", userNumber);
+	}
+
+	public Integer selectCompanyNumberByUserNumber(int userNumber) {
+		return sqlSession.selectOne("user.selectCompanyNumberByUserNumber", userNumber);
+	}
+}
+>>>>>>> de81b31 (20260323 이해준 자유게시판, 기업qna 수정)
