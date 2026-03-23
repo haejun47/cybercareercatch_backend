@@ -4,14 +4,25 @@ public class QnaListDTO {
 	private Long postNumber;
 	private String postTitle;
 	private String memberId;
+<<<<<<< HEAD
+=======
+	private String userId;
+>>>>>>> de81b31 (20260323 이해준 자유게시판, 기업qna 수정)
 	private String companyName;
 	private String postCreatedDate;
+	private String postDate;
+	private int viewCount;
 	private String answerStatus;
+<<<<<<< HEAD
 	private int viewCount;
 
 	public QnaListDTO() {
 		;
 	}
+=======
+
+	public QnaListDTO() {;}
+>>>>>>> de81b31 (20260323 이해준 자유게시판, 기업qna 수정)
 
 	public Long getPostNumber() {
 		return postNumber;
@@ -35,6 +46,24 @@ public class QnaListDTO {
 
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
+		this.userId = memberId;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+		this.memberId = userId;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 
 	public String getCompanyName() {
@@ -51,6 +80,24 @@ public class QnaListDTO {
 
 	public void setPostCreatedDate(String postCreatedDate) {
 		this.postCreatedDate = postCreatedDate;
+		this.postDate = postCreatedDate;
+	}
+
+	public String getPostDate() {
+		return postDate;
+	}
+
+	public void setPostDate(String postDate) {
+		this.postDate = postDate;
+		this.postCreatedDate = postDate;
+	}
+
+	public int getViewCount() {
+		return viewCount;
+	}
+
+	public void setViewCount(int viewCount) {
+		this.viewCount = viewCount;
 	}
 
 	public String getAnswerStatus() {
@@ -72,7 +119,12 @@ public class QnaListDTO {
 	@Override
 	public String toString() {
 		return "QnaListDTO [postNumber=" + postNumber + ", postTitle=" + postTitle + ", memberId=" + memberId
+<<<<<<< HEAD
 				+ ", companyName=" + companyName + ", postCreatedDate=" + postCreatedDate + ", answerStatus="
 				+ answerStatus + ", viewCount=" + viewCount + "]";
+=======
+				+ ", companyName=" + companyName + ", postDate=" + postDate + ", viewCount=" + viewCount
+				+ ", answerStatus=" + answerStatus + "]";
+>>>>>>> de81b31 (20260323 이해준 자유게시판, 기업qna 수정)
 	}
 }

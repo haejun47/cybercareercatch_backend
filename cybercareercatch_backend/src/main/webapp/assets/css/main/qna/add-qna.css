@@ -1,17 +1,27 @@
+/* 
+축약어 규칙
+qnl = qna list
+top = 상단 제목 영역
+tbl = 목록 테이블
+sel = select
+inp = input
+btn = button
+page = pagination
+*/
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #f4f6fb;
-    color: #333;
-    font-size: 14px;
-    line-height: 1.6;
+  background-color: #fff;
+  color: #111;
+  font-size: 14px;
 }
 
+<<<<<<< HEAD
 header {
     height: 166px;
 }
@@ -110,4 +120,128 @@ header {
 
 .qna-btn-secondary:hover {
     background: #f3f3f3;
+=======
+.qnl-wrap {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 50px 0 80px;
+}
+
+.qnl-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.qnl-top-ttl {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.qnl-write-btn {
+  width: 110px;
+  height: 42px;
+  border: 1px solid #111;
+  background-color: #111;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.qnl-search-box {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.qnl-search-box form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.qnl-sel,
+.qnl-inp {
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0 12px;
+}
+
+.qnl-sel {
+  min-width: 140px;
+}
+
+.qnl-inp {
+  width: 260px;
+}
+
+.qnl-btn {
+  width: 90px;
+  height: 40px;
+  border: 1px solid #111;
+  background-color: #111;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.qnl-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.qnl-tbl th,
+.qnl-tbl td {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 16px 10px;
+  text-align: center;
+}
+
+.qnl-tbl th {
+  background-color: #fafafa;
+  font-weight: 600;
+}
+
+.qnl-tbl td {
+  cursor: pointer;
+}
+
+.qnl-left {
+  text-align: left !important;
+}
+
+.qnl-notice-row {
+  background-color: #fff8e8;
+  font-weight: 600;
+}
+
+.qnl-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.qnl-page-link {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qnl-page-link.active {
+  background-color: #111;
+  color: #fff;
+  border-color: #111;
+>>>>>>> de81b31 (20260323 이해준 자유게시판, 기업qna 수정)
 }

@@ -1,6 +1,7 @@
 package com.ccc.qna.dto;
 
 public class QnaCommentDTO {
+<<<<<<< HEAD
    private Long commentNumber;
    private Long postNumber;
    private Long userNumber;
@@ -34,6 +35,38 @@ public class QnaCommentDTO {
    public void setUserNumber(Long i) {
       this.userNumber = i;
    }
+=======
+	private Integer commentNumber;
+	private Integer postNumber;
+	private Integer userNumber;
+	private String memberId;
+	private String commentContent;
+	private String commentCreatedDate;
+
+	public Integer getCommentNumber() {
+		return commentNumber;
+	}
+
+	public void setCommentNumber(Integer commentNumber) {
+		this.commentNumber = commentNumber;
+	}
+
+	public Integer getPostNumber() {
+		return postNumber;
+	}
+
+	public void setPostNumber(Integer postNumber) {
+		this.postNumber = postNumber;
+	}
+
+	public Integer getUserNumber() {
+		return userNumber;
+	}
+
+	public void setUserNumber(Integer userNumber) {
+		this.userNumber = userNumber;
+	}
+>>>>>>> de81b31 (20260323 이해준 자유게시판, 기업qna 수정)
 
    public String getMemberId() {
       return memberId;

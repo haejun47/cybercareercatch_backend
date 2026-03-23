@@ -22,12 +22,16 @@ public class QnaDAO {
 		sqlSession = MyBatisConfig.getSqlSessionFactory().openSession(true);
 	}
 
-	// 회사 목록 조회
+	// 기업 목록 조회
 	public List<CompanyDTO> selectCompanyList() {
 		return sqlSession.selectList("qna.selectCompanyList");
 	}
 
+<<<<<<< HEAD
 	// 사용자 목록 조회 + 검색 + 기업 필터
+=======
+	// 사용자 기업 QnA 목록 조회
+>>>>>>> de81b31 (20260323 이해준 자유게시판, 기업qna 수정)
 	public List<QnaListDTO> selectQnaList(String searchType, String searchKeyword, String companyNumber) {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("searchType", searchType);
@@ -37,6 +41,7 @@ public class QnaDAO {
 		return sqlSession.selectList("qna.selectQnaList", params);
 	}
 
+<<<<<<< HEAD
 	public int getAdminQnaTotal(String companyNumber) {
 		return sqlSession.selectOne("qna.getAdminQnaTotal", companyNumber);
 	}
@@ -72,10 +77,34 @@ public class QnaDAO {
 		return sqlSession.selectList("qna.selectCommentListByPostNumber", postNumber);
 	}
 
+=======
+	// 기업 QnA 상세 조회
+	public QnaDetailDTO selectQnaDetail(int postNumber) {
+		return sqlSession.selectOne("qna.selectQnaDetail", postNumber);
+	}
+
+	// 조회수 증가
+	public void updateViewCount(int postNumber) {
+		sqlSession.update("qna.updateViewCount", postNumber);
+	}
+
+	// 댓글 목록 조회
+	public List<QnaCommentDTO> selectCommentListByPostNumber(int postNumber) {
+		return sqlSession.selectList("qna.selectCommentListByPostNumber", postNumber);
+	}
+
+	// 댓글 단건 조회
+	public QnaCommentDTO selectComment(int commentNumber) {
+		return sqlSession.selectOne("qna.selectComment", commentNumber);
+	}
+
+	// 댓글 등록
+>>>>>>> de81b31 (20260323 이해준 자유게시판, 기업qna 수정)
 	public void insertComment(QnaCommentDTO qnaCommentDTO) {
 		sqlSession.insert("qna.insertComment", qnaCommentDTO);
 	}
 
+<<<<<<< HEAD
 	public void updateAnswerStatusToDone(Long postNumber) {
 		sqlSession.update("qna.updateAnswerStatusToDone", postNumber);
 	}
@@ -100,11 +129,101 @@ public class QnaDAO {
 		sqlSession.delete("qna.deleteQna", postNumber);
 	}
 
+=======
+	// 댓글 삭제
+	public void deleteComment(int commentNumber) {
+		sqlSession.delete("qna.deleteComment", commentNumber);
+	}
+
+	// 게시글별 댓글 개수 조회
+	public int selectCommentCountByPostNumber(int postNumber) {
+		return sqlSession.selectOne("qna.selectCommentCountByPostNumber", postNumber);
+	}
+
+	// 답변완료 처리
+	public void updateAnswerStatusToDone(int postNumber) {
+		sqlSession.update("qna.updateAnswerStatusToDone", postNumber);
+	}
+
+	// 답변대기 처리
+	public void updateAnswerStatusToWait(int postNumber) {
+		sqlSession.update("qna.updateAnswerStatusToWait", postNumber);
+	}
+
+	// 관리자 QnA 공지 1개 조회
+	public QnaDTO selectAdminQnaNotice() {
+		return sqlSession.selectOne("qna.selectAdminQnaNotice");
+	}
+
+	// 기업 QnA 글 등록
+>>>>>>> de81b31 (20260323 이해준 자유게시판, 기업qna 수정)
 	public void insertQna(QnaWriteDTO qnaWriteDTO) {
 		sqlSession.insert("qna.insertQna", qnaWriteDTO);
 	}
 
+<<<<<<< HEAD
 	public Long selectLastPostNumber() {
 		return sqlSession.selectOne("qna.selectLastPostNumber");
+=======
+	// 마지막 등록 게시글 번호 조회
+	public int selectLastPostNumber() {
+		Integer postNumber = sqlSession.selectOne("qna.selectLastPostNumber");
+		return postNumber == null ? 0 : postNumber;
+	}
+
+	// 게시글 댓글 전체 삭제
+	public void deleteCommentsByPostNumber(int postNumber) {
+		sqlSession.delete("qna.deleteCommentsByPostNumber", postNumber);
+	}
+
+	// 게시글 삭제
+	public void deleteQna(int postNumber) {
+		sqlSession.delete("qna.deleteQna", postNumber);
+	}
+
+	// 관리자 기업 QnA 총 개수
+	public int getAdminQnaTotal(String companyNumber) {
+		Integer total = sqlSession.selectOne("qna.getAdminQnaTotal", companyNumber);
+		return total == null ? 0 : total;
+	}
+
+	// 관리자 기업 QnA 목록 조회
+	public List<QnaListDTO> selectAdminQnaList(int startRow, int endRow, String companyNumber) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("startRow", startRow);
+		params.put("endRow", endRow);
+		params.put("companyNumber", companyNumber);
+
+		return sqlSession.selectList("qna.selectAdminQnaList", params);
+	}
+
+	// 관리자 기업 QnA 공지 개수
+	public int getAdminQnaNoticeCount() {
+		Integer count = sqlSession.selectOne("qna.getAdminQnaNoticeCount");
+		return count == null ? 0 : count;
+	}
+
+	// 관리자 기업 QnA 공지 등록
+	public void insertAdminQnaNotice(int adminNumber, String noticeContent) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("adminNumber", adminNumber);
+		params.put("noticeContent", noticeContent);
+
+		sqlSession.insert("qna.insertAdminQnaNotice", params);
+	}
+
+	// 관리자 기업 QnA 공지 수정
+	public void updateAdminQnaNotice(int adminNumber, String noticeContent) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("adminNumber", adminNumber);
+		params.put("noticeContent", noticeContent);
+
+		sqlSession.update("qna.updateAdminQnaNotice", params);
+	}
+
+	// QnaNoticeController를 계속 쓸 경우 필요
+	public QnaListDTO selectQnaNotice(String companyNumber) {
+		return sqlSession.selectOne("qna.selectQnaNotice", companyNumber);
+>>>>>>> de81b31 (20260323 이해준 자유게시판, 기업qna 수정)
 	}
 }
